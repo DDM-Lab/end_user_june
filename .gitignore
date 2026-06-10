@@ -25,5 +25,4 @@ CLAUDE.md
 
 # Experiment output (data sink — never commit)
 data/dataset.csv
-data/dataset_seq*.csv
 data/runs/
