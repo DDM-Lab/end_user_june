@@ -1,0 +1,29 @@
+# Secrets — never commit
+.env
+.env.local
+*.pem
+*.key
+
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Editor / tooling
+.vscode/
+.idea/
+
+# Claude Code working files
+CLAUDE.md
+.claude/
+
+# Experiment output (data sink — never commit)
+data/dataset.csv
+data/dataset_seq*.csv
+data/runs/

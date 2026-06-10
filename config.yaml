@@ -1,0 +1,29 @@
+# Central configuration for the LLM End-User simulator.
+# Env vars (API keys) are loaded from .env at startup.
+
+run:
+  # Which sequence file to iterate (1..5). Per protocol, distribute LLM
+  # instances evenly across the five.
+  sequence: 1
+  # Subject identifier for this run. If null, a uuid4 is generated.
+  subject_id: null
+  # Where to append result rows.
+  dataset_path: data/dataset.csv
+  # Where to read sequence files from.
+  sequences_dir: data/sequences
+  # Where to read email content from.
+  emails_csv: data/Emails.csv
+
+provider:
+  # One of: gemini | openai | ollama
+  name: gemini
+  # Model id for the selected provider.
+  model: gemini-2.5-flash
+  # Fixed at 0 per protocol — variance comes from prompt phrasing, not sampling.
+  temperature: 0.0
+  # Hard cap on tokens per response. Each reply is a small JSON object, but
+  # context grows across 56 turns so we leave room.
+  max_output_tokens: 2048
+  # Seconds to back off after a transient/rate-limit error before retry.
+  retry_backoff_sec: 5
+  retry_attempts: 3
